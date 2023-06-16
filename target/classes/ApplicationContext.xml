@@ -21,7 +21,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id = "Car" class="org.string.practise.DI.Car">
+    <bean id = "Car" class="org.string.practise.DI.Car" init-method="init" destroy-method="destroy">
         <property name="id" value="01"/>
         <property name="model" value="Q8"/>
     </bean>
