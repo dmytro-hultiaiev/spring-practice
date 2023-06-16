@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="ClassicMusic" class="org.string.practise.IoC.ClassicMusic"></bean>
+    <bean id="RockMusic" class="org.string.practise.IoC.RockMusic"></bean>
+    <bean id="PopMusic" class="org.string.practise.IoC.PopMusic"></bean>
+
+    <bean id = "MusicPlayer" class="org.string.practise.IoC.MusicPlayer">
+        <constructor-arg>
+            <list>
+                <ref bean="ClassicMusic"/>
+                <ref bean="RockMusic"/>
+                <ref bean="PopMusic"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id = "Car" class="org.string.practise.DI.Car" init-method="init" destroy-method="destroy">
+        <property name="id" value="01"/>
+        <property name="model" value="Q8"/>
+    </bean>
+
+</beans>
