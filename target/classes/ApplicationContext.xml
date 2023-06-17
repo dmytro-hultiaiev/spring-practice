@@ -7,23 +7,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="ClassicMusic" class="org.string.practise.IoC.ClassicMusic"></bean>
-    <bean id="RockMusic" class="org.string.practise.IoC.RockMusic"></bean>
-    <bean id="PopMusic" class="org.string.practise.IoC.PopMusic"></bean>
-
-    <bean id = "MusicPlayer" class="org.string.practise.IoC.MusicPlayer">
-        <constructor-arg>
-            <list>
-                <ref bean="ClassicMusic"/>
-                <ref bean="RockMusic"/>
-                <ref bean="PopMusic"/>
-            </list>
-        </constructor-arg>
-    </bean>
-
-    <bean id = "Car" class="org.string.practise.DI.Car" init-method="init" destroy-method="destroy">
-        <property name="id" value="01"/>
-        <property name="model" value="Q8"/>
-    </bean>
+        <context:component-scan base-package="org.string.practise.IoC"/>
+        <context:component-scan base-package="org.string.practise.DI"/>
+        <context:property-placeholder location="classpath:Car.properties"/>
 
 </beans>
