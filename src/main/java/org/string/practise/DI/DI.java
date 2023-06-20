@@ -1,12 +1,12 @@
 package org.string.practise.DI;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.string.practise.SpringConfiguration;
 
 public class DI {
     public static void main(String[] args) {
 
-        try(ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml")) {
+        try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class)) {
             Car car = context.getBean("Car", Car.class);
             System.out.println("ID: " + car.getId() + " Model: " + car.getModel());
         }

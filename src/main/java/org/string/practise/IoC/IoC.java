@@ -1,16 +1,14 @@
 package org.string.practise.IoC;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.string.practise.SpringConfiguration;
 
 public class IoC {
 
     public static void main(String[] args) {
-
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-
-        MusicPlayer mp = context.getBean("MusicPlayer", MusicPlayer.class);
-        mp.playMusic(GenreOfMusic.CLASSIC);
-
-        context.close();
+        try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class)){
+            MusicPlayer mp = context.getBean("MusicPlayer", MusicPlayer.class);
+            mp.playMusic(GenreOfMusic.POP);
+        }
     }
 }
